@@ -1,0 +1,40 @@
+bee:
+  data:
+    sql:
+      test:
+        provider: mysql
+        host: 127.0.0.1
+        port: 3306
+        database: test
+        user: 'root'
+        password: '000000'
+        charset: utf8mb4
+#        address: user:password@tcp(127.0.0.1:3306)/test?parseTime=true
+        max_open_conns: 100
+        max_idle_conns: 1
+        conn_lifetime: 5m
+        trace:
+          enabled: True
+          # unit=ms
+          time: 200
+        options:
+          max_open_conns: 100
+          max_idle_conns: 1
+
+    mongo:
+      uri: mongodb://advert:awenMongo20190110@dds-2ze0fb731a87dd54-pub.mongodb.rds.aliyuncs.com:3717/advert
+    redis:
+      database: 1
+      host: 101.201.235.73
+      port: 8379
+    kafka:
+      consumer:
+        group-id: test-app
+        auto-offset-reset: earliest
+        key-deserializer:  org.apache.kafka.common.serialization.StringDeserializer
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      bootstrap-servers: dev-bigdata01.awen-host.com:9092,dev-bigdata02.awen-host.com:9092,dev-bigdata03.awen-host.com:9092
+      listener:
+        concurrency: 3

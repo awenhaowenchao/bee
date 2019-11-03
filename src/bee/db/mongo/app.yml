@@ -1,0 +1,13 @@
+bee:
+  data:
+    mongo:
+      theater:
+        uri: mongodb://user:pwd@localhost:27017/test
+        max_pool_size: 100
+        min_pool_size: 5
+        #unit:ms
+        socket_time_out: 5000
+        #unit:ms
+        connect_time_out: 5000
+        #Primary|PrimaryPreferred|Secondary|SecondaryPreferred|Nearest
+        read_preference: Secondary
