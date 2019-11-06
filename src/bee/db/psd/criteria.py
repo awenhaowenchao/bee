@@ -191,8 +191,9 @@ class SimpleCriteriaSet(CriteriaSet):
         return self.add2(left, right, CriteriaEnum.NE)
 
     def add2(self, left, right, t: CriteriaEnum) -> "SimpleCriteriaSet":
-        item = TwoColumnCriteria(left, t, right)
-        return self.items.append(item)
+        item = TwoColumnCriteria(left, right, t)
+        self.items.append(item)
+        return self
 
     def in_(self, col, val) -> "SimpleCriteriaSet":
         return self.add(col, CriteriaEnum.IN, val)

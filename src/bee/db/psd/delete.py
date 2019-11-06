@@ -39,7 +39,7 @@ class DeleteContext(DeleteClause, ResultClause):
         self.info.columns = list(i.keys())
         self.info.values = list(i.values())
 
-        # where
+        # Where
         pk = i.getValue("__primary_key__")
         where = SimpleCriteriaSet()
         where.equal(pk, i.getValue(pk))

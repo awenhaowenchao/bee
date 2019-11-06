@@ -43,7 +43,7 @@ class SelectInfo():
         self.distinct = distinct
         self.columns = columns
         self.where = where
-        self.joins = joins
+        self.joins = []
         self.groups = groups
         self.having = having
         self.orders = orders
@@ -52,7 +52,7 @@ class SelectInfo():
         self.count = count
 
 
-class SelectContext(SelectClause, FromClause, WhereClause, JoinClause):
+class SelectContext(SelectClause, FromClause, WhereClause):
     name = "SelectContext"
 
     def __init__(self, info: SelectInfo = None, db=None):
@@ -72,10 +72,10 @@ class SelectContext(SelectClause, FromClause, WhereClause, JoinClause):
         self.info.count = False
         super().reset()
 
-    def select(self, cols: Columns, *distinct) -> SelectClause:
+    def select(self, cols: Columns, *distinct: bool) -> SelectClause:
         self.info.columns = cols
-        if len(distinct) > 0:
-            self.info.Distinct = distinct[0]
+        if distinct != None and len(distinct) > 0:
+            self.info.distinct = distinct[0]
         return self
 
     def count(self, table: Table) -> FromClause:
@@ -83,16 +83,16 @@ class SelectContext(SelectClause, FromClause, WhereClause, JoinClause):
         self.info.table = to_table(table)
         return self
 
-    def from_(self, table: Table) -> FromClause:
+    def From(self, table: Table) -> FromClause:
         self.info.table = to_table(table)
         return self
 
-    def where(self, w: CriteriaSet) -> WhereClause:
+    def Where(self, w: CriteriaSet) -> WhereClause:
         self.info.where = w
         return self
 
-    def join(self, t: Table, on: CriteriaSet) -> JoinClause:
-        return self._join(t, on, "JOIN")
+    def Join(self, t: Table, on: CriteriaSet) -> JoinClause:
+        return self._join(t=t, on=on, jt="JOIN")
 
     def left_join(self, t: Table, on: CriteriaSet) -> JoinClause:
         return self._join(t, on, "LEFT JOIN")
@@ -104,7 +104,7 @@ class SelectContext(SelectClause, FromClause, WhereClause, JoinClause):
         return self._join(t, on, "FULL JOIN")
 
     def _join(self, t: Table, on: CriteriaSet, jt: str) -> JoinClause:
-        join = Join(type=jt, table=t, on=on)
+        join = Join(type=jt, t=t, on=on)
         self.info.joins.append(join)
         return self
 
@@ -157,12 +157,17 @@ class SelectContext(SelectClause, FromClause, WhereClause, JoinClause):
             setattr(ins, col[0], data[i])
         return ins
 
-    def list(self, _type: type):
+    def list(self, _type: type=None):
+
         rows = self.rows()
         if rows == None:
             return None
         cols = rows.get("cols")
         data_list = rows.get("data")
+
+        if _type == None:
+            return data_list
+
         ins_list = []
         if data_list == None or len(data_list) == 0:
             return []

@@ -60,7 +60,7 @@ class IProvider():
 class Provider(IProvider):
 
     def quote(self, builder, string):
-        # builder.query += string
+        # builder.Query += string
         builder.write(string)
         pass
 
@@ -114,7 +114,7 @@ class Provider(IProvider):
             builder.write("=")
             builder.write("?")
         builder.args = info.values
-        if hasattr(info, "where") and info.where != None:
+        if hasattr(info, "Where") and info.where != None:
             builder.write(" WHERE ")
             self.build_criteria_set(builder, info.where)
         return builder
@@ -125,8 +125,8 @@ class Provider(IProvider):
         builder.write("DELETE FROM ")
         self.quote(builder, info.table)
 
-        if not hasattr(info, "where") or info.where == None:
-            raise BuildError("delete action must have where clause")
+        if not hasattr(info, "Where") or info.where == None:
+            raise BuildError("delete action must have Where clause")
 
         builder.write(" WHERE ")
         self.build_criteria_set(builder, info.where)
@@ -263,11 +263,15 @@ class Provider(IProvider):
 
 
     def build_two_column_criteria(self, builder, c: TwoColumnCriteria):
-        if c.left.table() != None:
+        if not isinstance(c.left, str) and c.left.table() != None:
             self.quote(builder, c.left.table().prefix())
             builder.write(const.psd_provider_dot)
 
-        self.quote(builder, c.left.name())
+        if not isinstance(c.left, str):
+            self.quote(builder, c.left.name())
+        else:
+            self.quote(builder, c.left)
+
 
         if c.type == CriteriaEnum.EQ:
             builder.write("=")
@@ -285,20 +289,24 @@ class Provider(IProvider):
             # 默认使用等于
             builder.write("=")
 
-        if c.right.table() != None:
+        if hasattr(c.right, "table") and c.right.table() != None:
             self.quote(builder, c.right.table().prefix())
             builder.write(const.psd_provider_dot)
-        self.quote(builder, c.right.name())
+        if isinstance(c.right, str):
+            self.quote(builder, c.right)
+        else:
+            self.quote(builder, c.right.name())
 
     def build_join(self, builder, info: SelectInfo):
         if info.joins != None and len(info.joins) > 0:
             for i, v in enumerate(info.joins):
-                builder.write_strs(" ", v.type, "")
+                builder.write_strs(" ", v.type, " ")
                 self.quote(builder, v.table)
-                if v.table.alias() != None and v.table.alias() != "":
-                    builder.write_strs(" AS ", v.table.alias())
+                if not isinstance(v.table, str):
+                    if v.table.alias() != None and v.table.alias() != "":
+                        builder.write_strs(" AS ", v.table.alias())
                 builder.write(" ON ")
-                self.build_criteria_set(v.on)
+                self.build_criteria_set(builder, v.on)
 
     def build_group_by(self, builder, info: SelectInfo):
         if info.groups != None and len(info.groups) > 0:

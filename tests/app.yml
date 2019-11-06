@@ -60,7 +60,6 @@ bee:
           read_timeout: 10
           #写超时时间，单位秒
           write_timeout: 10
-
   data:
     sql:
       test:
@@ -72,6 +71,25 @@ bee:
         password: '000000'
         charset: utf8mb4
 #        address: user:password@tcp(127.0.0.1:3306)/test?parseTime=true
+        max_open_conns: 100
+        max_idle_conns: 1
+        conn_lifetime: 5m
+        trace:
+          enabled: True
+          # unit=ms
+          time: 200
+        options:
+          max_open_conns: 100
+          max_idle_conns: 1
+      exam:
+        provider: mysql
+        host: localhost
+        port: 3306
+        database: exam
+        user: root
+        password: '000000'
+        charset: utf8mb4
+        #        address: user:password@tcp(127.0.0.1:3306)/test?parseTime=true
         max_open_conns: 100
         max_idle_conns: 1
         conn_lifetime: 5m

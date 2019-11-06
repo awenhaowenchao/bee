@@ -52,7 +52,7 @@ class UpdateContext(SetClause, UpdateClause, ResultClause):
             # TODO:
             pass
 
-        # where
+        # Where
         pk = i.getValue("__primary_key__")
         where = SimpleCriteriaSet()
         where.equal(pk, i.getValue(pk))

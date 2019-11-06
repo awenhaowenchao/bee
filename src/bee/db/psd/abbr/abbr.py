@@ -1,4 +1,4 @@
-from bee.db.psd.column import new_columns, ColumnFilter
+from bee.db.psd.column import new_columns, ColumnFilter, Columns
 from bee.db.psd.criteria import SimpleCriteriaSet, CriteriaSet, not_, and_, or_, equal
 from bee.db.psd.select import Order, OrderEnum
 from bee.db.psd.table import Table, new_table
@@ -16,7 +16,7 @@ def T(name: str, *alias: str) -> Table:
     return new_table(name, *alias)
 
 
-def C(*cols: str):
+def C(*cols: str)  -> Columns:
     return new_columns(*cols)
 
 
@@ -24,7 +24,7 @@ def CT(t, *cols: str):
     return new_columns().get_table(t, *cols)
 
 
-def CX(expr: str, alias: str):
+def CX(expr: str, alias: str=None):
     return new_columns().get_expr(expr, alias)
 
 

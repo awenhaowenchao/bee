@@ -47,7 +47,7 @@ class ConsulRegistry(Registry):
         # consul_resolver = resolver.Resolver()
         # consul_resolver.port = 8600
         # consul_resolver.nameservers = ["127.0.0.1"]
-        # dnsanswer_srv = consul_resolver.query(f"{service}.service.consul", "SRV")
+        # dnsanswer_srv = consul_resolver.Query(f"{service}.service.consul", "SRV")
         # print(dnsanswer_srv.response)
 
         # http mode

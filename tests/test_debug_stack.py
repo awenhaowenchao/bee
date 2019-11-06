@@ -1,3 +1,6 @@
+from bee.util.debug.stack import *
+
+
 def foo():
     stack()
 

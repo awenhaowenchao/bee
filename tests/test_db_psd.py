@@ -22,24 +22,24 @@ with db_test.connection() as conn:
 with db_test.transaction():
     db_test.insert("test").columns("id", "name").values(18, "james18").result()
     raise BeeError("rollback")
-    db_test.update("test").set("remark", "testremark").where(W().equal("id", "18")).result()
+    db_test.update("test").set("remark", "testremark").Where(W().equal("id", "18")).result()
 
 # 5)
 with db_test.transaction():
     db_test.update("test").set("remark", "1111").where(W().in_("id", [1,5])).result()
 
 # 6)
-# with db_test.connection() as conn:
-#     db_test.delete("test").where(W().in_("id", [9,10])).result()
+with db_test.connection() as conn:
+    db_test.delete("test").where(W().in_("id", [9,10])).result()
 
 # 7)
 with db_test.connection() as conn:
-    v = db_test.select(*CX("*", None)).from_("test").where(W().equal("id", 7)).value()
+    v = db_test.Select(*CX("*")).From("test").Where(W().equal("id", 7)).value()
     print(v)
 
 # 8)
 with db_test.connection() as conn:
-    v1 = db_test.select(*CX("COUNT(*)", "COUNT")).from_("test").int()
+    v1 = db_test.Select(*CX("COUNT(*)", "COUNT")).From("test").int()
     print(v1)
 
 
@@ -68,13 +68,13 @@ class Test(Model):
     create_time = DateTimeField()
 # 9)
 with db_test.connection() as conn:
-    v2 = db_test.select(*CX("*", None)).from_("test").where(W().equal("id", 6)).one(Test)
+    v2 = db_test.Select(*CX("*", None)).From("test").Where(W().equal("id", 6)).one(Test)
     print(v2)
 
 
 # 10)
 with db_test.connection() as conn:
-    v3 = db_test.select(*CX("*", None)).from_("test").list(Test)
+    v3 = db_test.Select(*CX("*", None)).From("test").list(Test)
     print(v3)
 
 # 11)
@@ -84,7 +84,7 @@ with db_test.connection() as conn:
 
 # 12)
 with db_test.connection() as conn:
-    result = db_test.query(cols=C("id", "name", "remark, create_time")).from_("test").where(W().equal("id", 1)).value()
+    result = db_test.Query(cols=C("id", "name", "remark, create_time")).From("test").Where(W().equal("id", 1)).value()
     print(result)
 
 

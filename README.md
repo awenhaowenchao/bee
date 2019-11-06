@@ -1,6 +1,6 @@
 #Bee
 
-**bee** is an all-in-one python framework for simplifying program development.
+**bee** is an all-in-one python framework for simplifying micro service program development.
 
 ## Components
 
@@ -20,8 +20,8 @@
 * **Web** - Web server with a variety of advanced features, to be continued
 * **Database**
     * Psd - A lightweight, fluent SQL data access and ORM library
-    * MongoDB - A powerful wrapper for [mongo](https://pypi.org/project/pymongo)
-    * Redis - A powerful wrapper for [redis](https://pypi.org/project/redis),[redis-py-cluster](https://pypi.org/project/redis-py-cluster)
+    * MongoDB - A useful wrapper for [mongo](https://pypi.org/project/pymongo)
+    * Redis - A useful wrapper for [redis](https://pypi.org/project/redis),[redis-py-cluster](https://pypi.org/project/redis-py-cluster)
 * **Utility** - Some useful utility packages..
     * debug
     * i18n

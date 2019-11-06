@@ -54,7 +54,7 @@ class DB():
     def delete(self, table: str):
         pass
 
-    def select(self, *cols: str):
+    def Select(self, *cols: str):
         pass
 
     def save(self, model, *filters: ColumnFilter):
@@ -66,7 +66,7 @@ class DB():
     def remove(self, model):
         pass
 
-    def query(self, cols: Columns, *distinct):
+    def Query(self, cols: Columns, *distinct):
         pass
 
 
@@ -136,7 +136,7 @@ class Database(DB):
         context.delete(table)
         return context
 
-    def select(self, *cols) -> SelectContext:
+    def Select(self, *cols) -> SelectContext:
         info = SelectInfo(columns=new_columns(*cols))
         context = SelectContext(info=info, db=self)
         context.db = self
@@ -160,7 +160,7 @@ class Database(DB):
         context.db = self
         return context.remove(model)
 
-    def query(self, cols: Columns, *distinct: str) -> "SelectClause":
+    def Query(self, cols: Columns, *distinct: bool) -> "SelectClause":
         info = SelectInfo(columns=[])
         context = SelectContext(info=info, db=self)
         context.db = self
@@ -198,6 +198,7 @@ class Database(DB):
             yield
         except BaseException as e:
             conn.rollback()
+            conn.close()
             raise e
         finally:
             conn.commit()

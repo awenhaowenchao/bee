@@ -100,7 +100,7 @@ class DeleteClause():
 
 
 """
-select clauses
+Select clauses
 """
 
 
@@ -110,7 +110,7 @@ class SelectClause():
     """
     name = "SelectClause"
 
-    def from_(self, table: Table) -> "FromClause":
+    def From(self, table: Table) -> "FromClause":
         pass
 
 
@@ -161,10 +161,6 @@ class OrderByClause(LimitClause, SelectResultClause):
     pass
 
 
-class JoinClause():
-    pass
-
-
 class GroupByClause(LimitClause, SelectResultClause):
     def order_by(self, *orders) -> "OrderByClause":
         pass
@@ -187,27 +183,29 @@ class WhereClause(LimitClause, SelectResultClause):
         pass
 
 
-class FromClause(JoinClause, LimitClause, SelectResultClause):
+class FromClause(LimitClause, SelectResultClause):
     """
     FromClause
     """
     name = "FromClause"
 
-    def join(self, table: Table, on: CriteriaSet) -> JoinClause:
+    def Join(self, table: Table, on: CriteriaSet) -> "JoinClause":
         pass
 
-    def left_join(self, t: Table, on: CriteriaSet) -> JoinClause:
+    def left_join(self, t: Table, on: CriteriaSet) -> "JoinClause":
         pass
 
-    def right_join(self, t: Table, on: CriteriaSet) -> JoinClause:
+    def right_join(self, t: Table, on: CriteriaSet) -> "JoinClause":
         pass
 
-    def full_join(self, t: Table, on: CriteriaSet) -> JoinClause:
+    def full_join(self, t: Table, on: CriteriaSet) -> "JoinClause":
         pass
 
-    def where(self, f: CriteriaSet) -> WhereClause:
+    def Where(self, f: CriteriaSet) -> WhereClause:
         pass
 
+class JoinClause(FromClause):
+    pass
 
 """
 count clauses
