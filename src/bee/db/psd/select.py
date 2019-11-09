@@ -194,4 +194,5 @@ class SelectContext(SelectClause, FromClause, WhereClause):
 
     def rows(self):
         builder = self.db.p.build_select(info=self.info)
+        print(builder.value())
         return self.db.find_list(builder.value(), builder.args)

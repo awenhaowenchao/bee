@@ -6,6 +6,7 @@ from bee.db.psd.criteria import CriteriaSet, SimpleCriteriaSet, OneColumnCriteri
 from bee.db.psd.delete import DeleteInfo
 from bee.db.psd.insert import InsertInfo
 from bee.db.psd.select import SelectInfo
+from bee.db.psd.table import AliasTable
 from bee.db.psd.update import UpdateInfo
 from bee.errors.error import BeeError
 
@@ -158,7 +159,11 @@ class Provider(IProvider):
                 builder.write_strs(" AS ", col.alias())
 
         builder.write(" FROM ")
-        self.quote(builder, info.table)
+        if isinstance(info.table, AliasTable):
+            self.quote(builder, info.table.name())
+        else:
+            self.quote(builder, info.table)
+
         if info.table.alias() != None and info.table.alias() != "":
             builder.write_strs(" AS ", info.table.alias())
 
@@ -301,7 +306,12 @@ class Provider(IProvider):
         if info.joins != None and len(info.joins) > 0:
             for i, v in enumerate(info.joins):
                 builder.write_strs(" ", v.type, " ")
-                self.quote(builder, v.table)
+
+                if isinstance(v.table, AliasTable):
+                    self.quote(builder, v.table.name())
+                else:
+                    self.quote(builder, v.table)
+
                 if not isinstance(v.table, str):
                     if v.table.alias() != None and v.table.alias() != "":
                         builder.write_strs(" AS ", v.table.alias())

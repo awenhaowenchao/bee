@@ -23,6 +23,21 @@ VERSION = '0.1.0'
 # What packages are requirpiped for this module to be executed?
 REQUIRED = [
     # 'requests', 'maya', 'records',
+    'aiohttp==3.5.4',
+    'etcd3==0.10.0',
+    'gsocketpool==0.1.6',
+    'aiohttp=3.5.4',
+    'pymongo==3.9.0',
+    'python-consul==1.1.0',
+    'pyyml==0.0.2',
+    'pyyaml>=5.1',
+    'redis-py-cluster==2.0.0',
+    'redis>=3.0.0,<3.1.0',
+    'pyyml==0.0.2',
+    'protobuf>=3.6.1',
+    'six>=1.9.0',
+    'bytebuffer==0.1.2',
+    'pymysql==0.9.2',
 ]
 
 # What packages are optional?
@@ -103,7 +118,8 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    packages=find_packages("src", exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    package_dir={"": "src"},
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
 

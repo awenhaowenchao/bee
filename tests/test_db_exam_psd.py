@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from bee import Psd, CX, On
+from bee import Psd, CX, On, T
 from bee import Model, IntegerField, StringField, DateTimeField, Equal, W, C
 
 db_exam = Psd.open("exam")
@@ -39,6 +39,16 @@ with db_exam.connection() as conn:
         .list()
     print(result)
 
+#or use alias mode like 'SELECT DISTINCT s.id,sc.cid,sc.score FROM t_student AS s JOIN t_sc AS sc ON s.id=sc.sid WHERE s.id=?'
+
+with db_exam.connection() as conn:
+    result = db_exam.Query(C("s.id", "sc.cid", "sc.score"), True)\
+        .From(T("t_student", "s"))\
+        .Join(T("t_sc", "sc"), On("s.id", "sc.sid"))\
+        .Where(Equal("s.id", 1001))\
+        .list()
+    print(result)
+
 # 6) with transaction
 with db_exam.transaction():
     # insert sql
@@ -46,6 +56,10 @@ with db_exam.transaction():
     # raise exception
     # update Sql
     pass
+
+
+# 5) tow table Join search, SELECT DISTINCT id,cid,score FROM t_student JOIN t_sc ON id=sid WHERE id=?
+
 
 
 
