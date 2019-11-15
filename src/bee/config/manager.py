@@ -1,8 +1,11 @@
+import os
+import sys
 from typing import List
 
 from bee.ext import files as files
 from bee.config.source import EnvSource, Source, cover_option, FileSource, ByteDataSource
 from bee.data.map import Map
+
 
 exts: List[str] = [".yml", ".yaml", ".json"]
 
@@ -48,8 +51,8 @@ class Manager():
         return m
 
     def set_default_value(self, name: str, value):
-        if not self.loaded:
-            self.load(True)
+        # if not self.loaded:
+        #     self.load(True)
         cover_option(self.defaults, name.lower(), value)
 
     def set_env_prefix(self, prefix: str):
@@ -58,7 +61,8 @@ class Manager():
     def add_folder(self, *dirs: str):
         length = len(dirs)
         if length > 0:
-            self.dirs += dirs
+            for v in dirs:
+                self.dirs.append(v)
 
     def find_file(self, name: str, *exts) -> str:
         """
@@ -148,7 +152,8 @@ class Manager():
         # step 1: if len(self.dirs)==0, read default folders
         if len(self.srcs) == 0:
             # TODO: to be continued...
-            self.add_folder("./")
+            self.add_folder(os.path.join(sys.path[1], "config"))
+            self.add_folder(".")
 
         # step 2: else read self.dirs
         for dir in self.dirs:

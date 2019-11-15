@@ -38,7 +38,6 @@ def test_type():
 
 def test_get():
     m = init_mamager()
-    m.add_folder(".")
     m.set_profiles("dev")
     print(m.get("test.id"))
 
@@ -88,7 +87,6 @@ test_find_folder()
 test_find_folders()
 test_type()
 test_get()
-
 test_byte_source()
 test_env()
 test_set_default()
