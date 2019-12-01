@@ -70,7 +70,7 @@ class Factory():
         self.sem.release()
         if client == None:
             return self.create(name)
-        return None
+        return client
 
     def create(self, name: str) -> Client:
         client = self.cmds.get(name)
