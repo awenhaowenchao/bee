@@ -67,9 +67,9 @@ class Factory():
     def open(self, name: str) -> Client:
         self.sem.acquire()
         client = self.cmds.get(name)
-        self.sem.release()
         if client == None:
-            return self.create(name)
+            client = self.create(name)
+        self.sem.release()
         return client
 
     def create(self, name: str) -> Client:
