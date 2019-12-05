@@ -1,8 +1,7 @@
+from gevent import monkey;monkey.patch_all()
 import gevent
 from gevent import signal
 from gevent.server import StreamServer
-from gevent import monkey
-monkey.patch_all()
 
 from datetime import datetime
 from typing import List

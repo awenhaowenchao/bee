@@ -1,10 +1,9 @@
+from gevent import monkey;monkey.patch_all()
 import gevent
-from gevent import monkey
-monkey.patch_all()
 
 from consul import Consul
-
-from bee.net.rpc.registry.registry import Registry, Server, RegistryError, patch_greenlet
+from bee.util.gevent import patch_greenlet
+from bee.net.rpc.registry.registry import Registry, Server, RegistryError
 
 
 class ConsulRegistry(Registry):
@@ -52,10 +51,9 @@ class ConsulRegistry(Registry):
 
         # http mode
         # requests.get(f"http://localhost:8500/v1/catalog/service/{service}")
-
         res = self.client.catalog.service(service=service)
         services = res[1]
-        return {child["ServiceID"] : child["ServiceAddress"] + str(child["ServicePort"]) for child in services}
+        return {child["ServiceID"] : child["ServiceAddress"] + ":" + str(child["ServicePort"]) for child in services}
 
     def heartbeat(self, key, value, ttl):
         #todo: to be continued
@@ -63,15 +61,9 @@ class ConsulRegistry(Registry):
 
     def watch(self, service, callback):
         def watch_loop():
-            s_key = self._svc_key(service)
-            # for res in self.etcd.watch(s_key, recursive=True):
-            for res in self.client.watch(s_key):
-                callback({
-                    'action': self._proc_action(res.action),
-                    'key': res.key,
-                    'value': res.value
-                })
-
+            #todo: to be continued
+            print(self.client.health.service(service))
+            pass
         self.watch_thread = gevent.spawn(watch_loop)
 
     def _proc_action(self, action):

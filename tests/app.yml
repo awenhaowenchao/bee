@@ -11,8 +11,10 @@ bee:
   rpc:
     registry:
       #direct\etcd3\consul\zk .etc
-      protocol: "consul"
+      protocol: "etcd3"
       address: 127.0.0.1:2379
+#      protocol: "consul"
+#      address: 127.0.0.1:8500
       #心跳频率，单位s
       heartbeat_interval: 30
     server:

@@ -1,6 +1,5 @@
+from gevent import monkey;monkey.patch_all()
 from gevent import socket
-from gevent import monkey
-monkey.patch_all()
 
 from bee.data.option import Option
 from bee.data.map import Map

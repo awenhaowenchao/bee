@@ -13,7 +13,6 @@ from bee.net.rpc.node import Node
 from bee.net.rpc.registry.builder import Builder
 from bee.net.rpc.registry.direct_registry import DirectRegistry
 from bee.net.rpc.registry.builder import Registry, Server
-from bee.net.rpc.registry.registry import patch_greenlet
 from bee.net.rpc.transport import Address
 
 from bee import config
@@ -84,7 +83,7 @@ class Client():
         # init balancer
         self.init_balancer(self.nodes)
 
-        # self.watch()
+        self.watch()
 
     def init_nodes(self):
         n_dict = self.registry.discovery(self.opts.name)
@@ -200,44 +199,4 @@ class Cluster(object):
                 opts.cover(Map.from_dict(v))
                 self._clients[k] = Client(opts=opts, registry=self.registry)
 
-    # def init_config(self):
-    #     conf_file_prefix = "app"
-    #     conf_file_suffix = ".yml"
-    #     env = ""
-    #     if "BEE_PROFILES_ACTIVE" in os.environ:
-    #         env = os.environ["BEE_PROFILES_ACTIVE"]
-    #     if env != "":
-    #         conf_file_name = conf_file_prefix + "_" + env + conf_file_suffix
-    #     else:
-    #         conf_file_name = conf_file_prefix + conf_file_suffix
-    #
-    #     with open(conf_file_name, encoding="utf-8") as f:
-    #         result = yaml.load(f, Loader=yaml.FullLoader)
-    #         if "bee" in result and "rpc" in result["bee"]:
-    #             if "registry" in result["bee"]["rpc"]:
-    #                 registry_client_dict = result["bee"]["rpc"]["registry"]
-    #                 # print(registry_client_dict)
-    #                 server = Server(protocol=registry_client_dict["protocol"], address=registry_client_dict["address"],
-    #                                 heartbeat_interval=registry_client_dict["heartbeat_interval"]);
-    #                 self.registry = Builder.build(server)
-    #
-    #             if "client" in result["bee"]["rpc"]:
-    #                 rpc_client_dict = result["bee"]["rpc"]["client"]
-    #                 # print(rpc_client_dict)
-    #                 for k, v in dict(rpc_client_dict).items():
-    #                     version = v.get("version")
-    #                     address_dict = v.get("address")
-    #                     if address_dict != None:
-    #                         address = Address(url=address_dict.get("url"), options=Map(address_dict.get("options", {})))
-    #                     codec_dict = v.get("codec")
-    #                     if codec_dict != None:
-    #                         codec = CodecOption(name=codec_dict.get("name", "proto"), options=Map(codec_dict.get("options", {})))
-    #                     fail = v.get("fail")
-    #                     balancer = v.get("balancer")
-    #                     connect_timeout = v.get("connect_timeout")
-    #                     read_timeout = v.get("read_timeout")
-    #                     write_timeout = v.get("write_timeout")
-    #                     opts = ClientOptions(name=k, version=version, fail=fail, codec=codec, address=address, balancer=balancer
-    #                                       , connect_timeout=connect_timeout, read_timeout=read_timeout, write_timeout=write_timeout);
-    #                     self._clients[k] = Client(opts=opts, registry=self.registry)
 

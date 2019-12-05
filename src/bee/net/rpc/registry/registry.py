@@ -1,11 +1,4 @@
-import gevent
-
 from bee.errors.error import BeeError
-
-def patch_greenlet(f):
-    def inner(*args, **kwargs):
-         return gevent.spawn(f, *args, **kwargs)
-    return inner
 
 class RegistryError(BeeError):
     pass

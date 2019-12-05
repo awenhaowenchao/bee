@@ -1,10 +1,9 @@
+from gevent import monkey;monkey.patch_all()
 import gevent
+from gevent import socket
 from enum import Enum
-from gevent import monkey
 
 from bee.errors.error import CodedError
-
-monkey.patch_all()
 
 from bee.data.guid.guid import Guid
 from bee.data.map import Map
@@ -54,7 +53,6 @@ class Node():
     def __str__(self):
         return "Node(id={}, address={}, status={}(value={}))".format(self.id, self.address, self.status,
                                                                      self.status.value)
-
     def call(self, service: str, method: str, args=[]) -> Result:
 
         """
@@ -97,4 +95,5 @@ class Node():
 
 
     def hearbeat(self):
+        #TODO; heartbeat retry
         pass
