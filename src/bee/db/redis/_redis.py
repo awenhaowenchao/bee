@@ -41,7 +41,8 @@ class Client():
         if self._opts.type == TYPE_SINGLE:
             return self._redis
         elif self._opts.type == TYPE_SENTINEL:
-            return self._sentinel.master_for(self._opts.master, socket_timeout=0.1)
+            return self._sentinel.master_for(self._opts.master, password=self._opts.password, db=self._opts.db
+                                             , socket_timeout=self._opts.socket_timeout / 1000, socket_connect_timeout=self._opts.socket_connect_timeout / 1000)
         elif self._opts.type == TYPE_CLUSTER:
             return self._rc
         else:
@@ -51,7 +52,8 @@ class Client():
         if self._opts.type == TYPE_SINGLE:
             return self._redis
         elif self._opts.type == TYPE_SENTINEL:
-            return self._sentinel.slave_for(self._opts.master, socket_timeout=0.1)
+            return self._sentinel.slave_for(self._opts.master, password=self._opts.password, db=self._opts.db
+                                            , socket_timeout=self._opts.socket_timeout / 1000, socket_connect_timeout=self._opts.socket_connect_timeout / 1000)
         elif self._opts.type == TYPE_CLUSTER:
             return self._rc
         else:
@@ -113,14 +115,13 @@ class Factory():
 
     def create_sentinel(self, opts: Options) -> Client:
 
-        pair = opts.address[0].split(":")
-        sentinel = Sentinel([(pair[0], int(pair[1]))], socket_timeout=5)
-        # sentinel.discover_master("")
-        # sentinel.discover_slaves("")
-        # master = sentinel.master_for(service_name, socket_timeout=0.1)
-        # service_name = opts.master
-        # slave = sentinel.slave_for(service_name, socket_timeout=0.1)
-        return Client(sentinel=sentinel, opts=opts)
+        address_array = []
+        for x in opts.address:
+            pair = x.split(":")
+            address_array.append(tuple(pair))
+
+        sentinel = Sentinel(address_array, socket_timeout=5)
+        return Client(s=sentinel, opts=opts)
 
     def create_cluster(self, opts: Options) -> Client:
         startup_nodes = []

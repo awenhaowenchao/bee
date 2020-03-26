@@ -11,3 +11,11 @@ cluster_client = redis_factory.open("test_cluster")
 result1 = cluster_client.reader().get("h")
 
 print(result1)
+
+sentinel_client = redis_factory.open("test_sentinel")
+
+sentinel_client.writer().set("title", "test_sentinel")
+
+result2 = sentinel_client.reader().keys("*")
+for x in result2:
+    print(sentinel_client.reader().get(x))
