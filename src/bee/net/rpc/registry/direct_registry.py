@@ -15,9 +15,9 @@ class DirectRegistry(Registry):
         pass
 
     def discovery(self, service):
-        url = self.opts.address.url
+        url = self.url
         if url:
-            node = {"id" : Guid().string(), "url" : url}
+            node = {Guid().string() : url}
             return node
         return {}
     def watch(self, service, callback):
