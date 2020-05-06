@@ -1,4 +1,4 @@
-from bee.db.psd import IConnection
+from bee.db.psd.connection.connection import IConnection
 
 
 class Builder():

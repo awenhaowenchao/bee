@@ -1,4 +1,3 @@
-from gevent import monkey;monkey.patch_all()
 import gevent
 
 import etcd3
@@ -11,7 +10,7 @@ class Etcd3Registry(Registry):
 
     def __init__(self, server: Server):
         self.server = server
-        self.etcd = self.registry_factory()
+        self._etcd = self.registry_factory()
 
     def registry_factory(self) -> Etcd3Client:
         if self.server == None:
@@ -35,12 +34,12 @@ class Etcd3Registry(Registry):
 
     def deregister(self, service: str, nid: str):
         n_key = self._node_key(service, nid)
-        self.etcd.delete(key=n_key)
+        self._etcd.delete(key=n_key)
 
     # def discovery(self, service) -> List[Node]:
     def discovery(self, service) -> dict:
         s_key = self._svc_key(service)
-        res = self.etcd.get_prefix(key_prefix=s_key)
+        res = self._etcd.get_prefix(key_prefix=s_key)
         return {bytes(child[1].key).decode().replace(s_key + "/providers/", "") : bytes(child[0]).decode() for child in res}
 
         # nodes = []
@@ -51,7 +50,7 @@ class Etcd3Registry(Registry):
 
     def heartbeat(self, key, value, ttl):
         # print("key=%sm value=%s" % (key, value))
-        r = self.etcd.put(key, bytes(value, encoding="utf-8"))
+        r = self._etcd.put(key, bytes(value, encoding="utf-8"))
 
         def heartbeat_loop():
             sleep = int(ttl / 2)
@@ -59,7 +58,7 @@ class Etcd3Registry(Registry):
                 gevent.sleep(sleep)
                 # self.etcd.refresh(key, ttl)
                 # TODO: refresh
-                self.etcd.put(key, value)
+                self._etcd.put(key, value)
 
         self.beat_thread = gevent.spawn(heartbeat_loop)
 
@@ -69,7 +68,7 @@ class Etcd3Registry(Registry):
         def watch_loop():
 
             s_key = self._svc_key(service)
-            events_iterator, cancel = self.etcd.watch_prefix(s_key)
+            events_iterator, cancel = self._etcd.watch_prefix(s_key)
             for event in events_iterator:
                 callback(event)
         #todo: to be continued
