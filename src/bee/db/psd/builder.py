@@ -11,8 +11,9 @@ class Builder():
         if self.args != None:
             self.args = self.args[:0]
 
-    def write(self, string):
+    def write(self, string) -> "Builder":
         self.query.write(string)
+        return self
 
     def write_strs(self, *strs):
         for i in strs:

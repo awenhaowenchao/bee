@@ -36,8 +36,8 @@ class SelectInfo():
 
     def __init__(self, table: Table = None, distinct: bool = False, columns: Columns = None, where: CriteriaSet = None,
                  joins: List[Join] = None
-                 , groups: object = None, having: CriteriaSet = None, orders: List[Order] = None, skip: int = 0,
-                 take: int = 0,
+                 , groups: object = None, having: CriteriaSet = None, orders: List[Order] = None, skip: int = None,
+                 take: int = None,
                  count: bool = False):
         self.table = table
         self.distinct = distinct
@@ -48,7 +48,7 @@ class SelectInfo():
         self.having = having
         self.orders = orders
         self.skip = skip
-        self.take = take,
+        self.take = take
         self.count = count
 
 
@@ -67,8 +67,8 @@ class SelectContext(SelectClause, FromClause, WhereClause):
         self.info.groups = None
         self.info.having = None
         self.info.orders = None
-        self.info.skip = 0
-        self.info.take = 0
+        self.info.skip = None
+        self.info.take = None
         self.info.count = False
         super().reset()
 

@@ -1,6 +1,6 @@
 from bee.data.map import Map
 from bee.db.psd.db import DBOptions, Database
-from bee.db.psd.provider.provider import Provider
+from bee.db.psd.provider.provider import MysqlProvider, MssqlProvider, SqliteProvider
 from bee import config
 
 
@@ -53,7 +53,12 @@ class Factory():
         if options != None:
             database = Database(name=options.name)
             database.opts = options
-            database.p = Provider()
+            if options.provider == "mysql":
+                database.p = MysqlProvider()
+            elif options.provider == "mssql":
+                database.p = MssqlProvider()
+            elif options.provider == "sqlite":
+                database.p = SqliteProvider()
             return database
 
 factory = Factory()
@@ -61,7 +66,6 @@ class Psd():
 
     @staticmethod
     def open(db_name) -> Database:
-        print(factory)
         db = factory.open(db_name)
         return db
 

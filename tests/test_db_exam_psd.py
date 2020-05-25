@@ -58,7 +58,10 @@ with db_exam.transaction():
     pass
 
 
-# 5) tow table Join search, SELECT DISTINCT id,cid,score FROM t_student JOIN t_sc ON id=sid WHERE id=?
+# 7) sing table search, SELECT * FROM t_student limit 0, 5
+with db_exam.connection() as conn:
+    students = db_exam.Select(*CX("*")).From("t_student").limit(1, 5).list()
+    print(students)
 
 
 

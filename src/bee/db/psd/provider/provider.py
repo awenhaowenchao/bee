@@ -174,6 +174,11 @@ class Provider(IProvider):
             self.build_criteria_set(builder, info.where)
 
         self.build_group_by(builder, info)
+
+        # limit
+        if info.skip != None or info.take != None:
+            self.limit(builder, info.skip, info.take)
+
         return builder
 
     def build_criteria_set(self, builder, cs: CriteriaSet):
@@ -214,38 +219,70 @@ class Provider(IProvider):
                 self.quote(builder, c.col)
                 builder.write(" IS NOT NULL")
                 return
-            self.quote(builder, c.col)
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
+
             builder.write("<>?")
         elif c.type == CriteriaEnum.LT:
-            self.quote(builder, c.col)
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
             builder.write("<?")
         elif c.type == CriteriaEnum.LTE:
-            self.quote(builder, c.col)
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
             builder.write("<=?")
         elif c.type == CriteriaEnum.GT:
-            self.quote(builder, c.col)
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
             builder.write(">?")
         elif c.type == CriteriaEnum.GTE:
-            self.quote(builder, c.col)
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
             builder.write(">=?")
         elif c.type == CriteriaEnum.IN:
-            self.quote(builder, c.col)
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
             builder.write(" IN(")
             self.build_in_values(builder, c.value)
             builder.write(")")
         elif c.type == CriteriaEnum.NIN:
-            self.quote(builder, c.col)
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
             builder.write(" NOT IN(")
             self.build_in_values(builder, c.value)
             builder.write(")")
         elif c.type == CriteriaEnum.LK:
-            self.quote(builder, c.col)
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
             builder.write_strs(" LIKE '", c.value, "'")
         else:
             if c.value == None:
-                self.quote(builder, c.col)
+                if not isinstance(c.col, str):
+                    self.quote(builder, c.col)
+                else:
+                    builder.write(c.col)
                 builder.write(" IS NOT NULL")
-            self.quote(builder, c.col)
+
+            if not isinstance(c.col, str):
+                self.quote(builder, c.col)
+            else:
+                builder.write(c.col)
             builder.write("=?")
         if (isinstance(c.value, list)):
             builder.args += c.value
@@ -275,7 +312,7 @@ class Provider(IProvider):
         if not isinstance(c.left, str):
             self.quote(builder, c.left.name())
         else:
-            self.quote(builder, c.left)
+            builder.write(c.left)
 
 
         if c.type == CriteriaEnum.EQ:
@@ -298,7 +335,7 @@ class Provider(IProvider):
             self.quote(builder, c.right.table().prefix())
             builder.write(const.psd_provider_dot)
         if isinstance(c.right, str):
-            self.quote(builder, c.right)
+            builder.write(c.right)
         else:
             self.quote(builder, c.right.name())
 
@@ -336,3 +373,41 @@ class Provider(IProvider):
             self.quote(builder, col.table().prefix())
             builder.write(const.psd_provider_dot)
             self.quote(builder, col.name())
+
+class MysqlProvider(Provider):
+    def quote(self, builder:Builder, string):
+        # builder.write(string)
+        builder.write("`").write(string).write("`");
+        # pass
+
+    def limit(self, builder:Builder, skip, take):
+        builder.write(" LIMIT " + str(skip) + "," + str(take))
+
+    def call(self, builder, sp:str, args=[]):
+        pass
+
+class MssqlProvider(Provider):
+    def quote(self, builder:Builder, string):
+        # builder.Query += string
+        builder.write(string)
+        # builder.write("[").write(string).write("]");
+        # pass
+
+    def limit(self, builder:Builder, skip, take):
+        builder.write(" OFFSET " + str(skip) + " ROWS FETCH NEXT " + str(take) + " ROWS ONLY")
+
+    def call(self, builder, sp:str, args=[]):
+        pass
+
+class SqliteProvider(Provider):
+    def quote(self, builder:Builder, string):
+        # builder.Query += string
+        builder.write(string)
+        # builder.write("[").write(string).write("]");
+        # pass
+
+    def limit(self, builder:Builder, skip, take):
+        builder.write(" LIMIT " + str(skip) + " OFFSET " + str(take))
+
+    def call(self, builder, sp:str, args=[]):
+        pass
