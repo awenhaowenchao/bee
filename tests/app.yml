@@ -20,7 +20,7 @@ bee:
     server:
       name: "test"
       desc: "test service"
-      version: 2.0
+      version: "2.0.0"
       register: True
       macher: proto
       address:
@@ -40,7 +40,7 @@ bee:
 
     client:
       test:
-        version: ">=1.0, <2"
+        version: ">=1.0.0"
         address:
           url: "127.0.0.1:9000"
         #          - url: "localhost:9000"

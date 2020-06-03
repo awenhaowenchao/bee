@@ -100,7 +100,7 @@ class SessionMap():
 
 class ServerOptions(Map):
 
-    def __init__(self, name: str = None, desc: str = None, version: str = "1.0", macher: str = "proto",
+    def __init__(self, name: str = None, desc: str = None, version: str = "1.0.0", macher: str = "proto",
                  address: Address = None
                  , max_conn_size: int = 1024, max_pool_size: int = 1024, backlog: int = 1000
                  , read_timeout: int = 10, write_timeout: int = 10):
@@ -140,7 +140,7 @@ class Server():
     @staticmethod
     def new_server(name: str = None, macher: str = "proto", address: Address = Address(url="127.0.0.1:9000"),
                    registry: Registry = None) -> "Server":
-        opts = ServerOptions(name=name, macher=macher, address=address,)
+        opts = ServerOptions(name=name, macher=macher, address=address, version="1.0.0")
         if is_debug:
             logging.debug("bee.rpc > init server's options")
         s = Server(opts=opts, registry=registry)
@@ -230,7 +230,7 @@ class Server():
 
     def register(self):
         self.nid = Guid().string()
-        self.registry.register(self.opts.name, self.nid, self.opts.address.url)
+        self.registry.register(self.opts.name, self.nid, self.opts.address.url, self.opts.version)
 
     def handle_signal(self):
         """register signal"""

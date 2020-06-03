@@ -13,13 +13,13 @@ class Server():
 
 class Registry():
 
-    def register(self, service: str, nid: str, address: str, ttl: int):
+    def register(self, service: str, nid: str, address: str, version: str, ttl: int):
         pass
 
     def deregister(self, service: str, nid: str):
         pass
 
-    def discovery(self, service) -> dict:
+    def discovery(self, service, v_match_regex: str) -> dict:
         pass
 
     def close(self):

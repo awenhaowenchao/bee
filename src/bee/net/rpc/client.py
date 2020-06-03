@@ -86,7 +86,7 @@ class Client():
         self.watch()
 
     def init_nodes(self):
-        n_dict = self.registry.discovery(self.opts.name)
+        n_dict = self.registry.discovery(self.opts.name, self.opts.version)
         nodes = []
         for k, v in n_dict.items():
             node = Node(id=k, address=v, cb=get_codec(self.opts.codec.name))

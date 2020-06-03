@@ -1,5 +1,6 @@
 from gevent import monkey;monkey.patch_all()
 import gevent
+from pipenv.vendor import semver
 
 from consul import Consul
 from bee.util.gevent import patch_greenlet
@@ -28,9 +29,10 @@ class ConsulRegistry(Registry):
     def _node_key(self, service, nid):
         return '/bee/rpc/{}/providers/{}'.format(service, nid)
 
-    def register(self, service: str, nid: str, address: str, ttl: int=None):
+    def register(self, service: str, nid: str, address: str, version: str, ttl: int=None):
         self.client.agent.service.register(name=service, service_id=nid
                                            , address=address.split(",")[0].split(":")[0], port=int(address.split(",")[0].split(":")[1])
+                                           , tags=[version], enable_tag_override=True
                                            )
 
     @patch_greenlet
@@ -38,7 +40,7 @@ class ConsulRegistry(Registry):
         self.client.agent.service.deregister(nid)
 
     # def discovery(self, service) -> List[Node]:
-    def discovery(self, service) -> dict:
+    def discovery(self, service: str, v_match_regex: str) -> dict:
 
         # dns mode
         # from dns import resolver
@@ -53,7 +55,15 @@ class ConsulRegistry(Registry):
         # requests.get(f"http://localhost:8500/v1/catalog/service/{service}")
         res = self.client.catalog.service(service=service)
         services = res[1]
-        return {child["ServiceID"] : child["ServiceAddress"] + ":" + str(child["ServicePort"]) for child in services}
+        _result = {}
+        for child in services:
+            if v_match_regex != None and v_match_regex != "":
+                if not semver.match(str(child["ServiceTags"][0]), v_match_regex):
+                    continue
+            _result[child["ServiceID"]] = child["ServiceAddress"] + ":" + str(child["ServicePort"])
+        return _result
+
+        # return {child["ServiceID"] : child["ServiceAddress"] + ":" + str(child["ServicePort"]) for child in services}
 
     def heartbeat(self, key, value, ttl):
         #todo: to be continued
@@ -62,7 +72,7 @@ class ConsulRegistry(Registry):
     def watch(self, service, callback):
         def watch_loop():
             #todo: to be continued
-            print(self.client.health.service(service))
+            # print(self.client.health.service(service))
             pass
         self.watch_thread = gevent.spawn(watch_loop)
 

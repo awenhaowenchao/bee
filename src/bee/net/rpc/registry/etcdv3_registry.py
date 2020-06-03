@@ -1,7 +1,10 @@
+import json
+
 import gevent
 
 import etcd3
 from etcd3 import Etcd3Client
+from pipenv.vendor import semver
 
 from bee.net.rpc.registry.registry import Registry, Server, RegistryError
 
@@ -27,40 +30,47 @@ class Etcd3Registry(Registry):
     def _node_key(self, service, nid):
         return '/bee/rpc/{}/providers/{}'.format(service, nid)
 
-    def register(self, service: str, nid: str, address: str, ttl: int=None):
+    def register(self, service: str, nid: str, address: str, version: str, ttl: int=None):
         n_key = self._node_key(service, nid)
         ttl = self.server.heartbeat_interval
-        self.heartbeat(n_key, address, ttl)
+        self.heartbeat(n_key, address, version, ttl)
 
     def deregister(self, service: str, nid: str):
         n_key = self._node_key(service, nid)
         self._etcd.delete(key=n_key)
 
     # def discovery(self, service) -> List[Node]:
-    def discovery(self, service) -> dict:
+    def discovery(self, service: str, v_match_regex: str) -> dict:
         s_key = self._svc_key(service)
+        print(s_key)
         res = self._etcd.get_prefix(key_prefix=s_key)
-        return {bytes(child[1].key).decode().replace(s_key + "/providers/", "") : bytes(child[0]).decode() for child in res}
+        _result = {}
+        for child in res:
+            json_value = json.loads(bytes(child[0]).decode())
+            address = json_value["address"]
+            version = json_value["version"]
+            if v_match_regex != None and v_match_regex != "":
+                if not semver.match(version, v_match_regex):
+                    continue
+            _result[bytes(child[1].key).decode().replace(s_key + "/providers/", "")] = address
 
-        # nodes = []
-        # for k, v in {bytes(child[1].key).decode().replace(s_key + "/providers/", ""): bytes(child[0]).decode() for child in res}.items():
-        #     node = Node(id=k, address=v)
-        #     nodes.append(node)
-        # return nodes
 
-    def heartbeat(self, key, value, ttl):
-        # print("key=%sm value=%s" % (key, value))
+        return _result
+
+    def heartbeat(self, key, address, version, ttl):
+        # print("key=%sm address=%s version=%s" % (key, address, version))
+        value = json.dumps({'address': address, 'version': version})
         r = self._etcd.put(key, bytes(value, encoding="utf-8"))
-
+        print(self._etcd.get(key))
         def heartbeat_loop():
             sleep = int(ttl / 2)
             while 1:
                 gevent.sleep(sleep)
                 # self.etcd.refresh(key, ttl)
                 # TODO: refresh
-                self._etcd.put(key, value)
+                self._etcd.put(key, bytes(value, encoding="utf-8"))
 
-        self.beat_thread = gevent.spawn(heartbeat_loop)
+        # self.beat_thread = gevent.spawn(heartbeat_loop)
 
 
     def watch(self, service, callback):

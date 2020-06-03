@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cadf7a64-08d2-4161-9b02-fa70dd282d39" name="Default Changelist" comment="" />
+    <list default="true" id="cadf7a64-08d2-4161-9b02-fa70dd282d39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/test_consul_registry.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_semver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bee/net/rpc/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bee/net/rpc/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bee/net/rpc/registry/consul_registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bee/net/rpc/registry/consul_registry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bee/net/rpc/registry/direct_registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bee/net/rpc/registry/direct_registry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bee/net/rpc/registry/etcdv3_registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bee/net/rpc/registry/etcdv3_registry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bee/net/rpc/registry/registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bee/net/rpc/registry/registry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bee/net/rpc/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bee/net/rpc/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/app.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_etcdv3_registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_etcdv3_registry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_rpc_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_rpc_server.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +39,7 @@
     <SUITE FILE_PATH="coverage/bee$pool_test.coverage" NAME="pool_test Coverage Results" MODIFIED="1571809993001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/bee$table.coverage" NAME="table Coverage Results" MODIFIED="1564305505986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db/psd" />
     <SUITE FILE_PATH="coverage/bee$gevent_test.coverage" NAME="gevent_test Coverage Results" MODIFIED="1566613599639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/net/rpc" />
-    <SUITE FILE_PATH="coverage/bee$test_rpc_server.coverage" NAME="test_rpc_server Coverage Results" MODIFIED="1573797274735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/bee$test_rpc_server.coverage" NAME="test_rpc_server Coverage Results" MODIFIED="1591151737730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/bee$pool.coverage" NAME="pool Coverage Results" MODIFIED="1567740438992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/bee$cluster_test.coverage" NAME="cluster_test Coverage Results" MODIFIED="1572773219540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/bee/net/rpc" />
     <SUITE FILE_PATH="coverage/bee$map.coverage" NAME="map Coverage Results" MODIFIED="1563579588342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
@@ -37,18 +51,21 @@
     <SUITE FILE_PATH="coverage/bee$db.coverage" NAME="db Coverage Results" MODIFIED="1563596430542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
     <SUITE FILE_PATH="coverage/bee$manager_test.coverage" NAME="manager_test Coverage Results" MODIFIED="1570534264601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/config" />
     <SUITE FILE_PATH="coverage/bee$bee.coverage" NAME="bee Coverage Results" MODIFIED="1568792219052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bee$test_etcdv3_registry.coverage" NAME="test_etcdv3_registry Coverage Results" MODIFIED="1591150697408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/bee$etcd3_test.coverage" NAME="etcd3_test Coverage Results" MODIFIED="1567654701297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/net/rpc/registry" />
     <SUITE FILE_PATH="coverage/bee$stack_test.coverage" NAME="stack_test Coverage Results" MODIFIED="1571475942450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util/debug" />
     <SUITE FILE_PATH="coverage/bee$column.coverage" NAME="column Coverage Results" MODIFIED="1564305473199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db/psd" />
     <SUITE FILE_PATH="coverage/bee$test_data_option.coverage" NAME="test_data_option Coverage Results" MODIFIED="1572070902839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/bee$etcd3.coverage" NAME="etcd3 Coverage Results" MODIFIED="1567080916713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/net/rpc/registry" />
-    <SUITE FILE_PATH="coverage/bee$test_rpc_client.coverage" NAME="test_rpc_client Coverage Results" MODIFIED="1573797293374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/bee$test_rpc_client.coverage" NAME="test_rpc_client Coverage Results" MODIFIED="1591094714207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/bee$test_consul_registry.coverage" NAME="test_consul_registry Coverage Results" MODIFIED="1591094472502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/bee$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1572439778542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/bee/net/web_flask" />
     <SUITE FILE_PATH="coverage/bee$test_db_exam_psd.coverage" NAME="test_db_exam_psd Coverage Results" MODIFIED="1573304413653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/bee$test_rpc_cluster.coverage" NAME="test_rpc_cluster Coverage Results" MODIFIED="1573807469482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/bee$test_rpc_cluster.coverage" NAME="test_rpc_cluster Coverage Results" MODIFIED="1591151781291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/bee$test.coverage" NAME="test Coverage Results" MODIFIED="1570709543380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db/psd" />
     <SUITE FILE_PATH="coverage/bee$i18n_test.coverage" NAME="i18n_test Coverage Results" MODIFIED="1572058482885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util/i18n" />
     <SUITE FILE_PATH="coverage/bee$psd_test.coverage" NAME="psd_test Coverage Results" MODIFIED="1572070314216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/bee$test_semver.coverage" NAME="test_semver Coverage Results" MODIFIED="1591091006692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/bee$test_rpc_balancer.coverage" NAME="test_rpc_balancer Coverage Results" MODIFIED="1572080827274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/bee$log.coverage" NAME="log Coverage Results" MODIFIED="1565694493277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/asyncio" />
     <SUITE FILE_PATH="coverage/bee$test_web_server.coverage" NAME="test_web_server Coverage Results" MODIFIED="1573305470512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -86,10 +103,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/registry/etcdv3_registry.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/registry/consul_registry.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2070">
-              <caret line="138" column="65" selection-start-line="138" selection-start-column="61" selection-end-line="138" selection-end-column="65" />
+            <state relative-caret-position="300">
+              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
               <folding>
                 <element signature="e#147#156#0" expanded="true" />
               </folding>
@@ -98,41 +136,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bee/config/_config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bee/config/source.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/test_config_manager.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_rpc_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="240">
+              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
@@ -141,32 +148,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/samples/app.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/samples/app.dev.yml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/bee/config/manager.py">
+        <entry file="file://$PROJECT_DIR$/tests/test_rpc_cluster.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="155" column="32" lean-forward="true" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/test_rpc_cluster.py">
+        <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="1230">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/codecs/proto/proto.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1005">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/app.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="2" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/codecs/json/json.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2040">
+              <caret line="143" selection-start-line="143" selection-end-line="143" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2145">
+              <caret line="160" selection-start-line="160" selection-end-line="160" />
             </state>
           </provider>
         </entry>
@@ -182,21 +212,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>peek</find>
-      <find>socket</find>
-      <find>sock</find>
-      <find>struct</find>
-      <find>logging</find>
-      <find>config</find>
-      <find>version</find>
-      <find>factory</find>
-      <find>providers</find>
-      <find>port</find>
-      <find>context</find>
-      <find>path</find>
-      <find>_svc_key</find>
-      <find>str_to_host</find>
-      <find>watch</find>
       <find>close</find>
       <find>aiads</find>
       <find>awenhaowenchao@hotmail.com</find>
@@ -212,6 +227,21 @@
       <find>profiles</find>
       <find>print()</find>
       <find>sys</find>
+      <find>lease</find>
+      <find>_node_key</find>
+      <find>ServerOptions</find>
+      <find>_result</find>
+      <find>address</find>
+      <find>tags</find>
+      <find>opts</find>
+      <find>heart</find>
+      <find>register</find>
+      <find>default_max_error_count</find>
+      <find>self._etcd.put</find>
+      <find>1.0</find>
+      <find>version</find>
+      <find>8080</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>read_int</replace>
@@ -246,11 +276,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/bee/net/rpc/client_test.py" />
-        <option value="$PROJECT_DIR$/src/bee/net/rpc/cluster_test.py" />
-        <option value="$PROJECT_DIR$/src/bee/net/rpc/node.py" />
-        <option value="$PROJECT_DIR$/src/bee/data/guid/__init__.py" />
-        <option value="$PROJECT_DIR$/src/bee/net/rpc/server_test.py" />
         <option value="$PROJECT_DIR$/src/bee/net/rpc/codecs/proto/proto.py" />
         <option value="$PROJECT_DIR$/LICENSE.rst" />
         <option value="$PROJECT_DIR$/src/bee/config/__init__.py" />
@@ -269,10 +294,6 @@
         <option value="$PROJECT_DIR$/src/bee/net/rpc/registry/builder.py" />
         <option value="$USER_HOME$/venv/bee/lib/python3.6/site-packages/urllib3/util/ssl_.py" />
         <option value="$USER_HOME$/venv/bee/lib/python3.6/site-packages/urllib3/util/__init__.py" />
-        <option value="$PROJECT_DIR$/src/bee/net/rpc/server.py" />
-        <option value="$PROJECT_DIR$/src/bee/net/rpc/registry/registry.py" />
-        <option value="$PROJECT_DIR$/src/bee/net/rpc/registry/consul_registry.py" />
-        <option value="$PROJECT_DIR$/tests/test_rpc_server.py" />
         <option value="$PROJECT_DIR$/src/bee/net/rpc/registry/consul_test.py" />
         <option value="$PROJECT_DIR$/src/bee/db/psd/README.MD" />
         <option value="$PROJECT_DIR$/src/bee/db/mongo/app.yml" />
@@ -290,20 +311,30 @@
         <option value="$PROJECT_DIR$/src/bee/db/psd/select.py" />
         <option value="$PROJECT_DIR$/src/bee/db/psd/provider/provider.py" />
         <option value="$PROJECT_DIR$/tests/test_db_exam_psd.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/tests/test_config_source.py" />
-        <option value="$PROJECT_DIR$/src/bee/net/rpc/client.py" />
-        <option value="$PROJECT_DIR$/tests/app.yml" />
         <option value="$PROJECT_DIR$/tests/test_config_manager.py" />
         <option value="$PROJECT_DIR$/tests/samples/app.dev.yml" />
         <option value="$PROJECT_DIR$/src/bee/config/manager.py" />
+        <option value="$PROJECT_DIR$/src/bee/net/rpc/registry/registry.py" />
+        <option value="$PROJECT_DIR$/src/bee/net/rpc/client.py" />
+        <option value="$PROJECT_DIR$/src/bee/net/rpc/registry/direct_registry.py" />
+        <option value="$PROJECT_DIR$/tests/test_consul_registry.py" />
+        <option value="$PROJECT_DIR$/src/bee/net/rpc/server.py" />
+        <option value="$PROJECT_DIR$/build/lib/bee/net/rpc/registry/etcdv3_registry.py" />
+        <option value="$PROJECT_DIR$/tests/test_etcdv3_registry.py" />
+        <option value="$PROJECT_DIR$/tests/app.yml" />
+        <option value="$PROJECT_DIR$/src/bee/net/rpc/registry/etcdv3_registry.py" />
+        <option value="$PROJECT_DIR$/src/bee/net/rpc/registry/consul_registry.py" />
+        <option value="$PROJECT_DIR$/tests/test_rpc_server.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1920" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="168" />
+    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -311,6 +342,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -321,7 +353,50 @@
             <path>
               <item name="bee" type="b2602c69:ProjectViewProjectNode" />
               <item name="bee" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+              <item name="registry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bee" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bee" type="b2602c69:ProjectViewProjectNode" />
@@ -343,11 +418,22 @@
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="&lt; Python 3.6 (bee) &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
+            <path>
+              <item name="bee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (bee) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="lib-dynload" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (bee) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,19 +445,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/config" />
-      <recent name="$PROJECT_DIR$/tests" />
-      <recent name="$PROJECT_DIR$/src/bee/net/web_flask" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/tests/samples" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/src/bee" />
       <recent name="$PROJECT_DIR$/config/samples" />
       <recent name="$PROJECT_DIR$/config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/config" />
+      <recent name="$PROJECT_DIR$/src/bee/net/web_flask" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/tests/samples" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -387,7 +473,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.test_rpc_cluster">
-    <configuration name="test_config_manager" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_consul_registry" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bee" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -400,7 +486,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_config_manager.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_consul_registry.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_etcdv3_registry" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bee" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_etcdv3_registry.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -475,42 +583,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_web_server" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="bee" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_web_server.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.test_web_server" />
-      <item itemvalue="Python.test_config_manager" />
-      <item itemvalue="Python.test_rpc_server" />
-      <item itemvalue="Python.test_rpc_client" />
       <item itemvalue="Python.test_rpc_cluster" />
+      <item itemvalue="Python.test_etcdv3_registry" />
+      <item itemvalue="Python.test_consul_registry" />
+      <item itemvalue="Python.test_rpc_client" />
+      <item itemvalue="Python.test_rpc_server" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test_rpc_cluster" />
-        <item itemvalue="Python.test_config_manager" />
-        <item itemvalue="Python.test_rpc_client" />
         <item itemvalue="Python.test_rpc_server" />
-        <item itemvalue="Python.test_web_server" />
+        <item itemvalue="Python.test_etcdv3_registry" />
+        <item itemvalue="Python.test_rpc_client" />
+        <item itemvalue="Python.test_consul_registry" />
       </list>
     </recent_temporary>
   </component>
@@ -630,11 +716,17 @@
       <workItem from="1573362268954" duration="317000" />
       <workItem from="1573441220974" duration="460000" />
       <workItem from="1573796856998" duration="4974000" />
+      <workItem from="1591090979567" duration="1330000" />
+      <workItem from="1591092446567" duration="1783000" />
+      <workItem from="1591094280458" duration="1792000" />
+      <workItem from="1591096122181" duration="534000" />
+      <workItem from="1591150029018" duration="1597000" />
+      <workItem from="1591151983872" duration="257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="633204000" />
+    <option name="totallyTimeSpent" value="640497000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -646,16 +738,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <frame x="168" y="23" width="1680" height="1027" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4947183" visible="true" weight="0.30341882" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4947183" visible="true" weight="0.32539684" />
       <window_info id="Structure" order="1" sideWeight="0.5052817" side_tool="true" weight="0.15654951" />
       <window_info id="Favorites" order="2" sideWeight="0.5031526" side_tool="true" weight="0.12886049" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4914803" weight="0.39591837" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5926518" visible="true" weight="0.33877552" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4838886" weight="0.32673267" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4914803" weight="0.23315509" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5926518" visible="true" weight="0.28663102" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4838886" weight="0.3262032" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.44356436" />
@@ -663,7 +754,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5085197" side_tool="true" weight="0.25940594" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.60383385" weight="0.36836734" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.60383385" weight="0.36791444" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" sideWeight="0.49733758" weight="0.32871288" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -680,6 +771,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="VERSION: 0.1.5&#10;add semver's support" />
+    <option name="LAST_COMMIT_MESSAGE" value="VERSION: 0.1.5&#10;add semver's support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -742,116 +835,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/bee/db/psd/column.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bee/db/psd/criteria.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="193" column="44" selection-start-line="193" selection-start-column="44" selection-end-line="193" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bee/db/psd/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="68" column="11" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="345">
-            <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_data_guid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_data_map.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_data_option.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_data_pool.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_db_mongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/yaml/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#1#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/codecs/proto/msg_pb2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/google/protobuf/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bee/db/psd/connection/mssql.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/pymysql/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/PyMySQL-0.9.2.dist-info/top_level.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/PyMySQL-0.9.2.dist-info/WHEEL">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/PyMySQL-0.9.2.dist-info/RECORD">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/PyMySQL-0.9.2.dist-info/METADATA">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/PyMySQL-0.9.2.dist-info/LICENSE.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret column="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_db_psd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -951,53 +934,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/app.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="61" column="25" selection-start-line="9" selection-start-column="2" selection-end-line="61" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/app.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/app.yml" />
     <entry file="file://$PROJECT_DIR$/src/bee/config/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_rpc_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="138" column="65" selection-start-line="138" selection-start-column="61" selection-end-line="138" selection-end-column="65" />
-          <folding>
-            <element signature="e#147#156#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bee/config/_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/-2057838867/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1009,10 +948,30 @@
     <entry file="file://$PROJECT_DIR$/tests/samples/app.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.yml" />
+    <entry file="file://$PROJECT_DIR$/src/bee/config/_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bee/config/source.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_config_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1022,19 +981,135 @@
     <entry file="file://$PROJECT_DIR$/tests/samples/app.dev.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_config_manager.py">
+    <entry file="file://$PROJECT_DIR$/src/bee/config/manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+        <state relative-caret-position="345">
+          <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_rpc_server.py">
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/registry/etcd3_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/data/guid/guid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-256">
+          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/etcd3/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="516" column="21" selection-start-line="516" selection-start-column="8" selection-end-line="516" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/data/map.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/consul/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="827" column="39" selection-start-line="827" selection-start-column="20" selection-end-line="827" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_semver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/registry/direct_registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/registry/registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/py_auxo_bee.egg-info/dependency_links.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/lib/bee/net/rpc/registry/etcdv3_registry.py" />
+    <entry file="file://$PROJECT_DIR$/tests/test_rpc_client.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/venv/bee/lib/python3.6/site-packages/etcd3/events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_etcdv3_registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3030">
+          <caret line="202" selection-start-line="202" selection-end-line="202" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_consul_registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/util/gevent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/registry/etcdv3_registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_rpc_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
           </folding>
@@ -1043,20 +1118,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_rpc_cluster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bee/config/manager.py">
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="155" column="32" lean-forward="true" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
+        <state relative-caret-position="1230">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/codecs/proto/proto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/app.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="2" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/codecs/json/json.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="143" selection-start-line="143" selection-end-line="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2145">
+          <caret line="160" selection-start-line="160" selection-end-line="160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bee/net/rpc/registry/consul_registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#147#156#0" expanded="true" />
           </folding>
         </state>
       </provider>
