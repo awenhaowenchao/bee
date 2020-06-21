@@ -154,15 +154,18 @@ class Manager():
             # TODO: to be continued...
             self.add_folder(os.path.join(sys.path[1], "config"))
             self.add_folder(".")
-
         # step 2: else read self.dirs
         for dir in self.dirs:
             for ext in exts:
-                for profile in self.profiles:
-                    path = dir + "/" + self.name + "." + profile + ext
+                if self.profiles == None or len(self.profiles) == 0:
+                    path = dir + "/" + self.name + ext
                     if files.exist(path):
                         srcs.append(FileSource(path))
-
+                else:
+                    for profile in self.profiles:
+                        path = dir + "/" + self.name + "." + profile + ext
+                        if files.exist(path):
+                            srcs.append(FileSource(path))
         for dir in self.dirs:
             for ext in exts:
                 path = dir + "/" + self.name + ext
