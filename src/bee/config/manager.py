@@ -152,7 +152,7 @@ class Manager():
         # step 1: if len(self.dirs)==0, read default folders
         if len(self.srcs) == 0:
             # TODO: to be continued...
-            self.add_folder(os.path.join(sys.path[1], "config"))
+            self.add_folder(os.path.join(sys.path[0], "config"))
             self.add_folder(".")
         # step 2: else read self.dirs
         for dir in self.dirs:
