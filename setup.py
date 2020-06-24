@@ -18,7 +18,7 @@ URL = 'https://github.com/awenhaowenchao/bee'
 EMAIL = 'awenhaowenchao@hotmail.com'
 AUTHOR = 'wenchao.hao'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.1.6'
+VERSION = '0.1.7'
 
 # What packages are requirpiped for this module to be executed?
 REQUIRED = [
