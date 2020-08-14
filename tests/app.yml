@@ -105,7 +105,7 @@ bee:
 
     mongo:
       theater:
-        uri: mongodb://theater:MongoTheater20181211@dds-2ze0fb731a87dd54-pub.mongodb.rds.aliyuncs.com:3717/theater
+        uri: mongodb://theater:MongoTheater20181211@dds-2zeb54122a808e84-pub.mongodb.rds.aliyuncs.com:3717/theater
         max_pool_size: 100
         min_pool_size: 5
         socket_time_out: 5000

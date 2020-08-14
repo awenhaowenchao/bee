@@ -1,5 +1,5 @@
-from bee.db.redis import  RedisFactory
-
+# from bee.db.redis import  RedisFactory
+from bee import RedisFactory
 redis_factory = RedisFactory()
 client = redis_factory.open("test_single")
 

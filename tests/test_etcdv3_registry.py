@@ -3,8 +3,10 @@ import gevent
 from etcd3.events import DeleteEvent, PutEvent
 
 from bee.data.guid import Guid
-from bee.net.rpc.registry.etcdv3_registry import Etcd3Registry
-from bee.net.rpc.registry.registry import Server
+# from bee.net.rpc.registry.etcdv3_registry import Etcd3Registry
+# from bee.net.rpc.registry.registry import Server
+from bee import Etcd3Registry
+from bee import RegistryServer as Server
 
 server = Server(protocol="etcd3", address="127.0.0.1:2379", heartbeat_interval=10)
 etcd3Registry = Etcd3Registry(server)

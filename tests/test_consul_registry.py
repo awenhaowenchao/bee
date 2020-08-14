@@ -1,9 +1,13 @@
 
 from etcd3.events import DeleteEvent
 
-from bee.data.guid import Guid
-from bee.net.rpc.registry.consul_registry import ConsulRegistry
-from bee.net.rpc.registry.registry import Server
+# from bee.data.guid import Guid
+# from bee.net.rpc.registry.consul_registry import ConsulRegistry
+# from bee.net.rpc.registry.registry import Server
+
+from bee import Guid
+from bee import ConsulRegistry
+from bee import RegistryServer as Server
 
 server = Server(protocol="consul", address="127.0.0.1:8500", heartbeat_interval=10)
 consulRegistry = ConsulRegistry(server)

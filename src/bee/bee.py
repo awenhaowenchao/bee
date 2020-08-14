@@ -12,5 +12,5 @@ banner = """
      `.__.    `.__.'   `.__.' 
      ::author: wenchao.hao::
 """
-version = "0.1.0"
+version = "0.1.8"
 
