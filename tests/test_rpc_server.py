@@ -1,9 +1,9 @@
 # from bee.net.rpc.registry.consul_registry import ConsulRegistry
 # from bee.net.rpc.registry.etcdv3_registry import Etcd3Registry
 # from bee.net.rpc.registry.registry import Server as RServer
-from bee import ConsulRegistry
-from bee import Etcd3Registry
-from bee import RegistryServer as RServer
+from bee.net import ConsulRegistry
+from bee.net import Etcd3Registry
+from bee.net import RegistryServer as RServer
 from bee.net.rpc.server import Server
 from bee.net.rpc.transport import Address
 
