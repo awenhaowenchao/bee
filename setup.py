@@ -25,7 +25,7 @@ REQUIRED = [
     # 'requests', 'maya', 'records',
     'etcd3>=0.10.0',
     'gsocketpool>=0.1.6',
-    'aiohttp==3.5.4',
+    'aiohttp==3.7.4',
     'pymongo==3.9.0',
     'python-consul==1.1.0',
     'pyyml==0.0.2',
